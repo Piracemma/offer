@@ -1,0 +1,134 @@
+@mixin copyright {
+  list-style: none;
+  padding: 0px;
+  display: flex;
+  flex-direction: row;
+  float: right;
+  margin: 0px;
+}
+@mixin copyli {
+  margin-left: 10px;
+  border: 2px solid $footer-text-2;
+  width: 30px;
+  text-align: $textcenter;
+}
+@mixin buy-now-btn {
+  color: $textcolor;
+  text-transform: $uppercase;
+  border-radius: 0px;
+  font-size: 14px;
+}
+@mixin buy-now-hover {
+  background-color: $textcolor;
+}
+@mixin wrongprice {
+  color: #868686;
+  position: relative;
+  font-weight: $fontweightn;
+  text-decoration: $textdecorationthrough;
+}
+@mixin starhalf {
+  color: $starcolor;
+  position: $absolute;
+  margin-left: -15px;
+  width: 8px;
+  overflow: hidden;
+  content: "\f005";
+}
+@mixin product-prevnext {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  opacity: 0.3;
+  left: 0;
+}
+@mixin product-owl {
+  position: absolute;
+  display: inline-block;
+  font-family: "themify";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  left: 15px;
+  top: 15px;
+}
+@mixin home-slider-carousel {
+  width: 60px;
+  height: 60px;
+  top: 50%;
+}
+@mixin box-img {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  padding: 15px;
+  background-repeat: no-repeat;
+}
+@mixin box-img-hover {
+  background-blend-mode: overlay;
+  background-color: rgba(255, 255, 255, 0.2);
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+@mixin ease3 {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+@mixin img-shadow {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 25px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width: 300px;
+  -webkit-box-shadow: 0 30px 25px #777;
+  -moz-box-shadow: 0 30px 25px #777;
+  box-shadow: 0 30px 25px #777;
+  -webkit-transform: rotate(-8deg);
+  -moz-transform: rotate(-8deg);
+  -o-transform: rotate(-8deg);
+  -ms-transform: rotate(-8deg);
+  transform: rotate(-8deg);
+}
+@mixin borderbox {
+  border: 2px solid #f2f2f2;
+  padding: 2px;
+  margin: 5px 0px;
+}
+@mixin borderboxhover {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+@mixin fadeinleft {
+  -webkit-animation-name: fadeInLeft;
+  -moz-animation-name: fadeInLeft;
+  -o-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 0.6s;
+  -moz-animation-duration: 0.6s;
+  -o-animation-duration: 0.6s;
+  animation-duration: 0.6s;
+  -webkit-animation-delay: 0.3s;
+  -moz-animation-delay: 0.3s;
+  -o-animation-duration: 0.3s;
+  animation-delay: 0.3s;
+}

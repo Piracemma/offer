@@ -1,0 +1,133 @@
+.zoom {
+  position: relative;
+}
+.zoom-main {
+  height: 80%;
+  position: relative;
+  text-align: center;
+}
+.zoom-thumb-hide .zoom-main {
+  height: 100%;
+}
+.zoom-main span {
+  background-position: 50% 50%;
+  background-repeat: none;
+  background-size: 200%;
+  overflow: hidden;
+  position: absolute;
+  cursor: zoom-in;
+  position: relative;
+  display: inline-block;
+  height: 100%;
+}
+.zoom-right .zoom-main span {
+  left: 0;
+}
+.zoom-main img {
+  height: 100%;
+  display: block;
+  background: #fff;
+  transition: opacity 0.5s;
+}
+.zoom-main img:hover {
+  opacity: 0;
+}
+.zoom-right .zoom-main {
+  height: 100%;
+  float: left;
+  padding-right: 5px;
+}
+.zoom-thumb {
+  text-align: center;
+  padding: 0 5px;
+}
+.zoom-right .zoom-thumb {
+  display: inline;
+}
+.zoom .zoom-thumb a {
+  margin: 0px;
+  padding: 2px;
+  border: 2px solid #eeebf0;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.zoom .zoom-thumb a:hover {
+  border: 2px solid #5c3f6b;
+}
+.zoom .zoom-thumb a:nth-child(2) {
+  margin: 0px 15px;
+}
+.zoom-right .zoom-thumb a {
+  float: left;
+  height: 20%;
+  display: inline-block;
+}
+.zoom .zoom-thumb a img {
+  height: 70px;
+}
+.zoom-left .zoom-main,
+.zoom-left .zoom-thumb a {
+  float: right;
+  width: auto;
+}
+@media all and (max-width: 1024px) {
+  /* .zoom .zoom-thumb a {
+    width: 86px;
+  } */
+  .zoom .zoom-thumb a:nth-child(2) {
+    margin: 0px 15px;
+  }
+  .zoom .zoom-thumb a img {
+    height: 60px;
+  }
+}
+@media all and (max-width: 735px) {
+  .zoom img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+  }
+  .zoom .zoom-thumb a img {
+    width: auto;
+  }
+  .zoom-main,
+  .zoom-thumb a {
+    float: none !important;
+  }
+  .zoom-main {
+    height: auto !important;
+  }
+  .zoom .zoom-thumb {
+    display: block;
+    height: 100%;
+    text-align: center !important;
+  }
+}
+@media all and (max-width: 767px) {
+  /* .zoom .zoom-thumb a {
+    width: 105px;
+  } */
+  .zoom .zoom-thumb a img {
+    height: 70px;
+  }
+}
+@media all and (max-width: 360px) {
+  .zoom .zoom-thumb a {
+    width: 95px;
+  }
+  .zoom .zoom-thumb a img {
+    height: 65px;
+  }
+}
+@media all and (max-width: 320px) {
+  .zoom .zoom-thumb a {
+    width: 85px;
+  }
+  .zoom .zoom-thumb a img {
+    height: 60px;
+  }
+}

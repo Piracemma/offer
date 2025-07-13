@@ -1,0 +1,14 @@
+@charset "UTF-8";
+/* CSS File 
+  ===================
+	Item Name: Freecart – Ecommerce HTML Lite Template.
+    Author: Ashish Maraviya
+    Version: 1.0
+    Copyright 2021
+===================*/
+.body-bg-1 {
+  background-image: url(../../img/bg/background-1.png);
+  background-size: cover;
+  background-attachment: fixed; }
+
+/*# sourceMappingURL=bg-1.css.map */

@@ -1,0 +1,239 @@
+<div class="col-md-6 col-sm-12">
+    <label class="label-input" for="senha">Senha</label>
+    <input onkeyup="verificaV(),validaSenhaRegexV()" onblur="limpaSmalV()" class="input-tag" type="password" name="senha" id="senhav" required>
+    <svg id="senha1v" onclick="alternarTipoSenhaV()" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye senha"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+    <svg id="senha2v" onclick="alternarTipoSenhaV()" style="display: none;" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye-off senha"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+    <small class="text-danger" id="conferesenharegexv">*A senha deve conter de 8 a 20 caracteres com: 1 maiuscula, 1 minuscula, 1 numerov e 1 caractere especial (@$!%*?&#/).</small>
+</div>
+<div class="col-md-6 col-sm-12">
+    <label class="label-input" for="validasenha">Confirmar Senha</label>
+    <input onkeyup="validaSenhaV()" class="input-tag" type="password" name="validasenha" id="validasenhav" required>
+    <svg id="senha3v" onclick="alternarTipoSenha2V()" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye senha"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+    <svg id="senha4v" onclick="alternarTipoSenha2V()" style="display: none;" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye-off senha"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+    <small class="text-danger" id="conferesenhav">*As senhas não conferem</small>
+</div>
+<div class="col-md-6 col-sm-12">
+    <label class="label-input" for="documento">CPF/CNPJ</label>
+    <input onkeyup="validadedocV()" onblur="limpaDocV()" class="input-tag" type="text" name="documento" id="documentov" <?php if(isset($this->view->vendedor) && isset($this->view->vendedor['documento'])) {?>value="<?= $this->view->vendedor['documento'] ?>"<?php } ?> required>
+    <small class="text-danger" id="conferedocumentov">*CPF/CNPJ invalido.</small>
+</div>
+
+<script>
+function alternarTipoSenhaV() {
+    var senhav = document.getElementById("senhav");
+    var senha1v = document.getElementById("senha1v");
+    var senha2v = document.getElementById("senha2v");
+    var tipoAtualv = senhav.type;
+
+    // Alterna para o tipo de entrada oposto
+    if (tipoAtualv === "password") {
+      senhav.type = "text";
+      senha1v.style.display = 'none';
+      senha2v.style.display = 'block';
+    } else {
+      senhav.type = "password";
+      senha1v.style.display = 'block';
+      senha2v.style.display = 'none';
+    }
+  }
+  function alternarTipoSenha2V() {
+    var senhav = document.getElementById("validasenhav");
+    var senha3v = document.getElementById("senha3v");
+    var senha4v = document.getElementById("senha4v");
+    var tipoAtualv = senhav.type;
+
+    // Alterna para o tipo de entrada oposto
+    if (tipoAtualv === "password") {
+      senhav.type = "text";
+      senha3v.style.display = 'none';
+      senha4v.style.display = 'block';
+    } else {
+      senhav.type = "password";
+      senha3v.style.display = 'block';
+      senha4v.style.display = 'none';
+    }
+}
+
+  //Validar senha
+
+  var senhav = document.getElementById('senhav');
+  var confsenhav = senhav.value;
+  if(confsenhav == '') {
+    var validasenhav = document.getElementById("validasenhav");
+    var confvalidasenhav = validasenhav.value;
+    var smallsenhav = document.getElementById("conferesenhav");
+    var textRegexv = document.getElementById('conferesenharegexv');
+
+    textRegexv.style.display = "none";
+    smallsenhav.style.display = "none";
+    validasenhav.style.borderColor = " #e0e0e0";
+  }
+
+  function validaSenhaRegexV() {
+
+    var validaRegexv;
+
+    var padraov = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#/])[A-Za-z\d@$!%*?&#/]{8,20}$/;
+
+    var senhav = document.getElementById('senhav');
+    var confsenhav = senhav.value;
+  
+    if (padraov.test(confsenhav)) {
+
+      validaRegexv = true; // A senha é válida
+
+    } else {
+
+      validaRegexv = false; // A senha é inválida
+
+    }
+
+    var textRegexv = document.getElementById('conferesenharegexv');
+
+    if (validaRegexv) {
+
+      textRegexv.style.display = "none";
+      senhav.style.borderColor = " #e0e0e0";
+
+    } else {
+
+      textRegexv.style.display = "block";
+      senhav.style.borderColor = " #dc3545";
+
+    }
+
+  }
+
+  function limpaSmalV() {
+
+    var senhav = document.getElementById('senhav');
+    var confsenhav = senhav.value;
+
+    if(confsenhav == '') {
+
+      var textRegexv = document.getElementById('conferesenharegexv');
+
+      textRegexv.style.display = "none";
+      senhav.style.borderColor = " #e0e0e0";
+
+    }
+
+  }
+
+  function verificaV() {
+
+    validaSenhaV();
+
+  }
+  function validaSenhaV() {//verifica se são igauis
+    var senhav = document.getElementById('senhav');
+    var confsenhav = senhav.value;
+    var validasenhav = document.getElementById("validasenhav");
+    var confvalidasenhav = validasenhav.value;
+    
+
+    var smallsenhav = document.getElementById("conferesenhav");
+
+    if(confsenhav == confvalidasenhav) {
+        smallsenhav.style.display = "none";
+        validasenhav.style.borderColor = " #e0e0e0";
+    } else {
+        smallsenhav.style.display = "block";
+        validasenhav.style.borderColor = "#dc3545";
+    }
+
+  }
+
+  //validador de documento
+  var documentov = document.getElementById('documentov');
+  var confdocv = documentov.value;
+  if(confdocv == '') {
+    var textodocumentov = document.getElementById("conferedocumentov");
+    textodocumentov.style.display = "none";
+    documentov.style.borderColor = " #e0e0e0";
+  }
+
+  function limpaDocV() {
+
+    var documentov = document.getElementById('documentov');
+    var confdocv = documentov.value;
+    if(confdocv == '') {
+      var textodocumentov = document.getElementById("conferedocumentov");
+      textodocumentov.style.display = "none";
+      documentov.style.borderColor = " #e0e0e0";
+    }
+
+  }
+
+  function validarCPFCNPJV() {
+    var documentov = document.getElementById('documentov');
+    var confdocumentov = documentov.value;
+    var numerov = confdocumentov.replace(/\D/g, '');
+    
+    if (numerov.length === 11) {
+        if (/^(\d)\1*$/.test(numerov)) {
+            return false;
+        }
+        
+        let soma = 0;
+        for (let i = 0; i < 9; i++) {
+            soma += parseInt(numerov[i]) * (10 - i);
+        }
+        
+        const digito1 = (soma % 11 < 2) ? 0 : 11 - (soma % 11);
+        
+        soma = 0;
+        for (let i = 0; i < 10; i++) {
+            soma += parseInt(numerov[i]) * (11 - i);
+        }
+        
+        const digito2 = (soma % 11 < 2) ? 0 : 11 - (soma % 11);
+        
+        if (numerov[9] == digito1 && numerov[10] == digito2) {
+            return true;
+        }
+    } else if (numerov.length === 14) {
+        if (/^(\d)\1*$/.test(numerov)) {
+            return false;
+        }
+        
+        let soma = 0;
+        let multiplicador = 5;
+        for (let i = 0; i < 12; i++) {
+            soma += parseInt(numerov[i]) * multiplicador;
+            multiplicador = (multiplicador === 2) ? 9 : multiplicador - 1;
+        }
+        
+        const digito1 = soma % 11 < 2 ? 0 : 11 - (soma % 11);
+        
+        soma = 0;
+        multiplicador = 6;
+        for (let i = 0; i < 13; i++) {
+            soma += parseInt(numerov[i]) * multiplicador;
+            multiplicador = (multiplicador === 2) ? 9 : multiplicador - 1;
+        }
+        
+        const digito2 = soma % 11 < 2 ? 0 : 11 - (soma % 11);
+        
+        if (numerov[12] == digito1 && numerov[13] == digito2) {
+            return true;
+        }
+    }
+    
+    return false;
+}
+
+function validadedocV() {
+  var styledocumentov = document.getElementById('documentov');
+  var textodocumentov = document.getElementById('conferedocumentov');
+
+  if(validarCPFCNPJV()) {
+    textodocumentov.style.display = "none";
+    styledocumentov.style.borderColor = " #e0e0e0";
+  } else {
+    textodocumentov.style.display = "block";
+    styledocumentov.style.borderColor = " #dc3545";
+  }
+
+}
+</script>

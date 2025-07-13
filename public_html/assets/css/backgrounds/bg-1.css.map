@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": ";AAAA;;;;;;;qBAOqB;AACrB,UAAU;EACR,gBAAgB,EAAE,kCAAkC;EACpD,eAAe,EAAE,KAAK;EACtB,qBAAqB,EAAE,KAAK",
+"sources": ["../../scss/themes/bg-1.scss"],
+"names": [],
+"file": "bg-1.css"
+}
